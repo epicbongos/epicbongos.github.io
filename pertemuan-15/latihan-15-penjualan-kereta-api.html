@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Penjualan Kereta Api</title>
+    <meta name="description" content="Latihan 15 - Sebelum UAS" />
+    <link rel="stylesheet" href="w3.css" />
+  </head>
+  <body>
+    <div class="w3-panel w3-pink">
+      <center>
+        <h1>PENJUALAN TIKET KERETA API</h1>
+      </center>
+    </div>
+    <form class="w3-panel w3-cyan w3-card-4 w3-padding-16" name="form">
+      <center>
+        <table>
+          <tr>
+            <td>KOTA TUJUAN</td>
+            <td>:</td>
+            <td>
+              <select name="bagian" class="w3-select">
+                <option value="BANDUNG" id="bagian">BANDUNG</option>
+                <option value="JAKARTA" id="bagian">JAKARTA</option>
+                <option value="SURABAYA" id="bagian">SURABAYA</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>KELAS</td>
+            <td>:</td>
+            <td>
+              <input
+                type="checkbox"
+                name="EKONOMI"
+                value="EKONOMI"
+                class="w3-check"
+                id="kelas"
+              />EKONOMI
+              <input
+                type="checkbox"
+                name="BISNIS"
+                value="BISNIS"
+                class="w3-check"
+                id="kelas"
+              />BISNIS
+              <input
+                type="checkbox"
+                name="EKSEKTUTIF"
+                values="EKSEKTUTIF"
+                class="w3-check"
+                id="kelas"
+              />EKSEKUTIF
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <hr />
+            </td>
+            <td><hr /></td>
+            <td><hr /></td>
+          </tr>
+
+          <tr>
+            <td>FASILITAS TAMBAHAN</td>
+            <td>:</td>
+            <td>
+              <input
+                type="checkbox"
+                name="MAKAN"
+                value="MAKAN"
+                class="w3-check"
+                id="tambahan"
+              />MAKAN
+              <input
+                type="checkbox"
+                name="WIFI"
+                value="WIFI"
+                class="w3-check"
+                id="tambahan"
+              />WIFI
+              <input
+                type="checkbox"
+                name="MINUMAN"
+                value="MINUMAN"
+                class="w3-check"
+                id="tambahan"
+              />MINUMAN
+            </td>
+          </tr>
+          <tr>
+            <td>JUMLAH</td>
+            <td>:</td>
+            <td>
+              <input
+                class="w3-input"
+                type="text"
+                name="jumlahTiket"
+                id="jumlahTiket"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <hr />
+            </td>
+            <td><hr /></td>
+            <td><hr /></td>
+          </tr>
+
+          <tr>
+            <td>HARGA TIKET + TAMBAHAN</td>
+            <td>:</td>
+            <td>
+              <input
+                class="w3-input"
+                type="text"
+                name="hargaTiketTambahan"
+                id="hargaTiketTambahan"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>SUB TOTAL</td>
+            <td>:</td>
+            <td>
+              <input
+                class="w3-input"
+                type="text"
+                name="subTotal"
+                id="subTotal"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>DISKON</td>
+            <td>:</td>
+            <td>
+              <input class="w3-input" type="text" name="diskon" id="diskon" />
+            </td>
+          </tr>
+          <tr>
+            <td>TOTAL HARGA</td>
+            <td>:</td>
+            <td>
+              <input
+                class="w3-input"
+                type="text"
+                name="totalHarga"
+                id="totalHarga"
+              />
+            </td>
+          </tr>
+        </table>
+      </center>
+    </form>
+    <div class="w3-panel w3-gray w3-padding-16">
+      <center>
+        <div>
+          <input
+            type="button"
+            class="w3-button w3-blue"
+            value="Proses"
+            onclick="proses()"
+          />
+          <input
+            type="button"
+            class="w3-button w3-red"
+            value="Reset"
+            onclick="reset()"
+          />
+        </div>
+      </center>
+    </div>
+    <script>
+      function proses() {
+        let bagian = document.getElementById('bagian').value
+        let kelas = document.getElementById('kelas').value
+        let tambahan = document.getElementById('tambahan').value
+        let jumlahTiket = document.getElementById('jumlahTiket').value
+        let diskon = document.getElementById('diskon').value
+        let subTotal = document.getElementById('subTotal').value
+        let totalHarga = document.getElementById('totalHarga').value
+        let hargaTiketTambahan =
+          document.getElementById('hargaTiketTambahan').value
+
+        let hargaTambahan, hargaTiket
+        // TIKET
+        if (bagian == 'BANDUNG' && kelas == 'EKONOMI') {
+          hargaTiket = 70000
+          console.log('🚀 ~ proses ~ hargaTiket:', hargaTiket)
+        } else if (bagian == 'JAKARTA' && kelas == 'EKONOMI') {
+          hargaTiket = 100000
+        } else if (bagian == 'SURABAYA' && kelas == 'EKONOMI') {
+          hargaTiket = 150000
+        }
+
+        if (bagian == 'BANDUNG' && kelas == 'BISNIS') {
+          hargaTiket = 80000
+        } else if (bagian == 'JAKARTA' && kelas == 'BISNIS') {
+          hargaTiket = 150000
+        } else if (bagian == 'SURABAYA' && kelas == 'BISNIS') {
+          hargaTiket = 200000
+        }
+
+        if (bagian == 'BANDUNG' && kelas == 'EKSEKUTIF') {
+          hargaTiket = 90000
+        } else if (bagian == 'JAKARTA' && kelas == 'EKSEKUTIF') {
+          hargaTiket = 200000
+        } else if (bagian == 'SURABAYA' && kelas == 'EKSEKUTIF') {
+          hargaTiket = 300000
+        }
+
+        // TAMBAHAN
+        if (tambahan == 'MAKAN') {
+          hargaTambahan = 15000
+        }
+        if (tambahan == 'WIFI') {
+          hargaTambahan = 10000
+        }
+        if (tambahan == 'MINUMAN') {
+          hargaTambahan = 5000
+        }
+
+        hargaTambahan *= jumlahTiket
+        hargaTiketTambahan = hargaTiket + hargaTambahan
+        document.form.hargaTiketTambahan.value = hargaTiketTambahan
+
+        subTotal = hargaTiketTambahan * jumlahTiket
+        document.form.subTotal.value = subTotal
+
+        if (jumlahTiket > 3) {
+          persentaseDiskon = 10
+          jumlahDiskon = (subTotal * persentaseDiskon) / 100
+          diskon = subTotal - jumlahDiskon
+          document.form.diskon.value = diskon
+        }
+        totalHarga = subTotal + diskon
+        document.form.totalHarga.value = totalHarga
+      }
+      const reset = () => {
+        let bagian = document.getElementById('bagian')
+        const checkboxes = document.querySelectorAll(
+          'input[type="checkbox"][name="kelas"]'
+        )
+
+        let kelas = document.getElementById('kelas')
+        let tambahan = document.getElementById('tambahan')
+        let jumlahTiket = document.getElementById('jumlahTiket')
+        let diskon = document.getElementById('diskon')
+        let subTotal = document.getElementById('subTotal')
+        let totalHarga = document.getElementById('totalHarga')
+        let hargaTiketTambahan = document.getElementById('hargaTiketTambahan')
+
+        let hargaTambahan
+        let hargaTiket
+
+        checkboxes.forEach((checkbox) => {
+          checkbox.checked = false
+        })
+        document.form.bagian.value = ''
+        document.form.kelas.checked = false
+        document.form.kelas.defaultChecked = false
+        // document.form.kelas.value = ''
+        document.form.tambahan.checked = false
+        document.form.tambahan.defaultChecked = false
+        // document.form.tambahan.value = ''
+        document.form.jumlahTiket.value = ''
+        document.form.diskon.value = ''
+        document.form.subTotal.value = ''
+        document.form.totalHarga.value = ''
+        document.form.hargaTiketTambahan.value = ''
+        document.form.hargaTambahan.value = ''
+        document.form.hargaTiket.value = ''
+      }
+    </script>
+  </body>
+</html>
