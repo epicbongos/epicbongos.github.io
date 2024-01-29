@@ -1,6 +1,12 @@
-/* W3.CSS 4.15 December 2020 by Jan Egil and Borge Refsnes */
-html {
+@font-face {
+  font-family: 'Victor Mono';
+  src: url('./fonts/VictorMono-Regular.woff2') format('woff2');
+}
+body,
+html,
+* {
   box-sizing: border-box;
+  font-family: 'Victor Mono', sans-serif;
 }
 *,
 *:before,
@@ -180,7 +186,7 @@ textarea {
 /* End extract */
 html,
 body {
-  font-family: Verdana, sans-serif;
+  font-family: Victor Mono;
   font-size: 15px;
   line-height: 1.5;
 }
@@ -223,7 +229,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: Victor Mono;
   font-weight: 400;
   margin: 10px 0;
 }
@@ -904,7 +910,7 @@ a {
 }
 .w3-code,
 .w3-codespan {
-  font-family: Consolas, 'courier new';
+  font-family: Victor Mono;
   font-size: 16px;
 }
 .w3-code {
@@ -1618,4 +1624,10 @@ a {
 .w3-border-pale-blue,
 .w3-hover-border-pale-blue:hover {
   border-color: #e7ffff !important;
+}
+
+.kota {
+  margin: 13px;
+  background: #f1f1f1d3;
+  border-radius: 10px;
 }
